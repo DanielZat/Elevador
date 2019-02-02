@@ -3,9 +3,44 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.136
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - API", "1 - API", "{883882D1-16D7-4A85-86B7-C49D12F1B1E4}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Aplicacao", "2 - Aplicacao", "{57DA03CA-F1F0-4AA1-9697-594A9C270FFF}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - Dominio", "3 - Dominio", "{29F74AC3-DCBE-490C-A101-EBED8B7AF895}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Elevador.Dominio", "Elevador.Dominio\Elevador.Dominio.csproj", "{E903806C-88B4-4DC2-AEFC-44CB83DF8BB1}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Elevador.Aplicacao", "Elevador.Aplicacao\Elevador.Aplicacao.csproj", "{B4E7B11B-F618-487C-983B-FE628AEF5368}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Elevador.API", "Elevador.API\Elevador.API.csproj", "{3980D3C7-66B0-45EE-8715-DDEE2C13683B}"
+EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E903806C-88B4-4DC2-AEFC-44CB83DF8BB1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E903806C-88B4-4DC2-AEFC-44CB83DF8BB1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E903806C-88B4-4DC2-AEFC-44CB83DF8BB1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E903806C-88B4-4DC2-AEFC-44CB83DF8BB1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B4E7B11B-F618-487C-983B-FE628AEF5368}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B4E7B11B-F618-487C-983B-FE628AEF5368}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B4E7B11B-F618-487C-983B-FE628AEF5368}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B4E7B11B-F618-487C-983B-FE628AEF5368}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3980D3C7-66B0-45EE-8715-DDEE2C13683B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3980D3C7-66B0-45EE-8715-DDEE2C13683B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3980D3C7-66B0-45EE-8715-DDEE2C13683B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3980D3C7-66B0-45EE-8715-DDEE2C13683B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{E903806C-88B4-4DC2-AEFC-44CB83DF8BB1} = {29F74AC3-DCBE-490C-A101-EBED8B7AF895}
+		{B4E7B11B-F618-487C-983B-FE628AEF5368} = {57DA03CA-F1F0-4AA1-9697-594A9C270FFF}
+		{3980D3C7-66B0-45EE-8715-DDEE2C13683B} = {883882D1-16D7-4A85-86B7-C49D12F1B1E4}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {C565D508-A889-46D4-A9F9-DFAD5FAB2445}
