@@ -71,7 +71,10 @@ namespace Elevador.Aplicacao.Implementacoes
 
         public List<char> periodoMaiorFluxoElevadorMaisFrequentado()
         {
-            throw new System.NotImplementedException();
+            var elevadoresMaisFrequentados = elevadorMaisFrequentado();
+
+            var resultado = questionarios.Where(w => w.Elevador == elevadoresMaisFrequentados[0]).GroupBy(g => g.Turno).OrderByDescending(o => o.Count()).Select(s => s.Key).ToList();
+            return resultado.ToList();
         }
 
         public List<char> periodoMaiorUtilizacaoConjuntoElevadores()
@@ -81,8 +84,16 @@ namespace Elevador.Aplicacao.Implementacoes
         }
 
         public List<char> periodoMenorFluxoElevadorMenosFrequentado()
-        {
-            throw new System.NotImplementedException();
+        {     
+            var elevadoresMenosFrequentados = elevadorMenosFrequentado();
+
+            Dictionary<char, int> turnos = new Dictionary<char, int>();
+            turnos.Add('M', questionarios.Where(w => w.Elevador == elevadoresMenosFrequentados[0] && w.Turno == 'M').Count());
+            turnos.Add('V', questionarios.Where(w => w.Elevador == elevadoresMenosFrequentados[0] && w.Turno == 'V').Count());
+            turnos.Add('N', questionarios.Where(w => w.Elevador == elevadoresMenosFrequentados[0] && w.Turno == 'N').Count());
+            
+            var resultado = turnos.OrderBy(x => x.Value).Select(x => x.Key);
+            return resultado.ToList();
         }
     }
 }
