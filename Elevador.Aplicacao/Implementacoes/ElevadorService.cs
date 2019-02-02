@@ -76,7 +76,8 @@ namespace Elevador.Aplicacao.Implementacoes
 
         public List<char> periodoMaiorUtilizacaoConjuntoElevadores()
         {
-            throw new System.NotImplementedException();
+            var resultado = questionarios.GroupBy(g => g.Turno).OrderByDescending(o => o.Count()).Select(s => s.Key).ToList();
+            return resultado.ToList();
         }
 
         public List<char> periodoMenorFluxoElevadorMenosFrequentado()
