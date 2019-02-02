@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using Elevador.Aplicacao.Interfaces;
@@ -22,45 +23,50 @@ namespace Elevador.Aplicacao.Implementacoes
 
         public List<int> andarMenosUtilizado()
         {
-            var resultado = questionarios.Select(q => q.Andar);
-
-
+            var resultado = questionarios.GroupBy(g => g.Andar).OrderBy(o => o.Count()).Select(s => s.Key).ToList();
             return resultado.ToList();
         }
 
         public List<char> elevadorMaisFrequentado()
         {
-            throw new System.NotImplementedException();
+            var resultado = questionarios.GroupBy(g => g.Elevador).OrderByDescending(o => o.Count()).Select(s => s.Key).ToList();
+            return resultado.ToList();
         }
 
         public List<char> elevadorMenosFrequentado()
         {
-            throw new System.NotImplementedException();
+            var resultado = questionarios.GroupBy(g => g.Elevador).OrderBy(o => o.Count()).Select(s => s.Key).ToList();
+            return resultado.ToList();
         }
 
         public float percentualDeUsoElevadorA()
         {
-            throw new System.NotImplementedException();
+            var resultado = questionarios.Where(w => w.Elevador == 'A').Select(s => s.Elevador).Count();
+            return ((float)resultado / (float)questionarios.Count()) * 100;
         }
 
         public float percentualDeUsoElevadorB()
         {
-            throw new System.NotImplementedException();
+            var resultado = questionarios.Where(w => w.Elevador == 'B').Select(s => s.Elevador).Count();
+            return ((float)resultado / (float)questionarios.Count()) * 100;
         }
 
         public float percentualDeUsoElevadorC()
         {
-            throw new System.NotImplementedException();
+            var resultado = questionarios.Where(w => w.Elevador == 'C').Select(s => s.Elevador).Count();
+            return ((float)resultado / (float)questionarios.Count()) * 100;
         }
 
         public float percentualDeUsoElevadorD()
         {
-            throw new System.NotImplementedException();
+            var resultado = questionarios.Where(w => w.Elevador == 'D').Select(s => s.Elevador).Count();
+            return ((float)resultado / (float)questionarios.Count()) * 100;
         }
 
         public float percentualDeUsoElevadorE()
         {
-            throw new System.NotImplementedException();
+            var resultado = questionarios.Where(w => w.Elevador == 'E').Select(s => s.Elevador).Count();
+            return ((float)resultado / (float)questionarios.Count()) * 100;
         }
 
         public List<char> periodoMaiorFluxoElevadorMaisFrequentado()
