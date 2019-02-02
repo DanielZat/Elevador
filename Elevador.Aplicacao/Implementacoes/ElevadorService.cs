@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using Elevador.Aplicacao.Interfaces;
@@ -23,7 +22,14 @@ namespace Elevador.Aplicacao.Implementacoes
 
         public List<int> andarMenosUtilizado()
         {
-            var resultado = questionarios.GroupBy(g => g.Andar).OrderBy(o => o.Count()).Select(s => s.Key).ToList();
+            Dictionary<int, int> andares = new Dictionary<int, int>();
+
+            for (int i = 0; i <= 15; i++)
+            {
+                andares.Add(i, questionarios.Where(w => w.Andar == i).Count());
+            }
+
+            var resultado = andares.OrderBy(x => x.Value).Select(x => x.Key);
             return resultado.ToList();
         }
 
